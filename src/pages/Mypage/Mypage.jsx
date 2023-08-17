@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import * as S from './Styles.js';
 
 
@@ -17,9 +17,9 @@ function Mypage(props) {
     const localStorageUser = JSON.parse(localStorage.getItem("user"));
 
     let user = {
-        username: localStorageUser.username && localStorageUser.username,
-        name: localStorageUser.name && localStorageUser.name,
-        email: localStorageUser.email && localStorageUser.email
+        username: localStorageUser?.username && localStorageUser.username,
+        name: localStorageUser?.name && localStorageUser.name,
+        email: localStorageUser?.email && localStorageUser.email
     }
 
     const handleProfileImgChangeClick = () => {
@@ -31,6 +31,7 @@ function Mypage(props) {
 
         reader.onload = (e) => {
             setProfileImg(e.target.result);
+            console.log(profileImg);
         }
 
         reader.readAsDataURL(e.target.files[0]);
@@ -49,6 +50,10 @@ function Mypage(props) {
         localStorage.setItem("profileImg", profileImg);
     }
 
+    useEffect(() => {
+        
+    }, [])
+
     return (
         <div css={S.SLayout}>
             <div css={S.SContainer}>
@@ -62,15 +67,15 @@ function Mypage(props) {
             <div css={S.SContainerBottom}>
                 <div css={S.SUsername}>
                     <label htmlFor="username">사용자명 </label>
-                    <input type="text" id='username' name="username" onChange={handleInputChange}/>
+                    <input type="text" id='username' name="username" onChange={handleInputChange} defaultValue={user.username}/>
                 </div>
                 <div css={S.SName}>
                     <label htmlFor="name">이름 </label>
-                    <input type="text" id='name' name="name" onChange={handleInputChange}/>
+                    <input type="text" id='name' name="name" onChange={handleInputChange} defaultValue={user.name}/>
                 </div>
                 <div css={S.SEmail}>
                     <label htmlFor="email">E-mail </label>
-                    <input type="text" id='email' name="email" onChange={handleInputChange}/>
+                    <input type="text" id='email' name="email" onChange={handleInputChange} defaultValue={user.email}/>
                 </div>
                 <div>
                     <button css={S.SButton} onClick={handleSaveClick}>SAVE</button>
