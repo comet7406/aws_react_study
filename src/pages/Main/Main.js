@@ -21,12 +21,17 @@ function Main(props) {
         console.log(e.target);
         console.log(`name: ${name}, value: ${value}`);
 
-        const userObj = {
+        setUser({
             ...user,
             [name]: value
-        }
+        });
 
-        setUser(userObj);
+        // const userObj = {
+        //     ...user,
+        //     [name]: value
+        // }
+
+        // setUser(userObj);
     }
 
     const handleAddClick = () => {
