@@ -1,9 +1,10 @@
 import React from 'react';
+import Input from '../Atom/Input/Input';
 
 function TodoAddInput(props) {
     return (
         <div>
-            <input type="text" />
+            <Input />
         </div>
     );
 }

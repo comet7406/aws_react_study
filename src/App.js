@@ -1,10 +1,13 @@
-import Test from "./Test";
+import CustomerInputTest from "./pages/CustomerInputTest/CustomerInputTest";
+import InputTest from "./pages/InputTest/InputTest";
 import Main from "./pages/Main/Main";
 
 function App() {
   return (
     <>
-      <Main />
+      {/* <Main /> */}
+      {/* <InputTest /> */}
+      <CustomerInputTest />
     </>
   );
 }
