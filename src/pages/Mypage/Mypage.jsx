@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import * as S from './Styles.js';
 
 
@@ -50,9 +50,9 @@ function Mypage(props) {
         localStorage.setItem("profileImg", profileImg);
     }
 
-    useEffect(() => {
+    // useEffect(() => {
         
-    }, [])
+    // }, [])
 
     return (
         <div css={S.SLayout}>
